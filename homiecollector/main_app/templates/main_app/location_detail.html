@@ -9,8 +9,8 @@
         <span class="card-title">{{ location.name }}</span>
       </div>
       <div class="card-action">
-        <a href="{% url 'locations_update' location.id %}">Edit</a>
-        <a href="{% url 'locations_delete' location.id %}">Delete</a>
+        <a href="/locations/<int:pk>/update">Edit</a>
+        <a href="/locations/<int:pk>/delete">Delete</a>
       </div>
     </div>
   </div>

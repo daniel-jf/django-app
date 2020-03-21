@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 
-from .models import Homie, Location
-from .forms import HomieForm, SawForm
+from .models import Homie, Location, Saw
+from .forms import HomieForm, LocationForm, SawForm
 
 def home(request):
     return render(request, 'home.html')
@@ -20,8 +20,8 @@ def homies_detail(request, homie_id):
     saw_form = SawForm()
     return render(request, 'homies/detail.html', { 
         'homie': homie_data,
-        'saw_form': saw_form,
-        'locations': locations_homie_not
+        'location_form': location_form,
+        'saw': saw_homie_not
     })
 
 def assoc_location(request, homie_id, location_id):
@@ -66,7 +66,6 @@ def homies_delete(request, homie_id):
 # To view all locations made
 def location_index(request):
     locations = Location.objects.all()
-    print(locations)
     return render(request, 'main_app/location_list.html', { 'locations': locations })
 
 class LocationDetail(DetailView):
@@ -80,9 +79,9 @@ class LocationCreate(CreateView):
 # To update a location
 class LocationUpdate(UpdateView):
   model = Location
-  fields = ['name', 'color']
+  fields = ['name', 'detail']
 
 # To delete a location
 class LocationDelete(DeleteView):
   model = Location
-  success_url = '/locations/'
+  success_url = 'locations/'

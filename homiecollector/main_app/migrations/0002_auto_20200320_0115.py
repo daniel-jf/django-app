@@ -15,6 +15,8 @@ class Migration(migrations.Migration):
             name='Location',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=100)),
+                ('detail', models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
@@ -33,5 +35,5 @@ class Migration(migrations.Migration):
             model_name='homie',
             name='locations',
             field=models.ManyToManyField(to='main_app.Location'),
-        ),
+        )
     ]

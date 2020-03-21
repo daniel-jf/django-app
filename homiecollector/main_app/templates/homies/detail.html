@@ -11,7 +11,6 @@
         <p>Description: {{ homie.description }}</p>
           <p>Age: {{ homie.age }}</p>
       </div>
-
       <div class="card-action">
         <a href="{% url 'homies_update' homie.id %}">Edit</a>
         <a href="{% url 'homies_delete' homie.id %}">Delete</a>
@@ -34,7 +33,7 @@
 
     <table class="striped">
       <thead>
-        <tr><th>Date</th><th>Meal</th></tr>
+        <tr><th>Date</th><th>Where</th></tr>
       </thead>
       <tbody>
         {% for saw in homie.saw_set.all %}

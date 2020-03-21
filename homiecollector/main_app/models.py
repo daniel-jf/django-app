@@ -7,11 +7,10 @@ WHERES = (
     ('NT', 'No, not there'),
     ('WT', 'Was there earlier')
 )
-
 # Create your models here.
 class Location(models.Model):
-    name: models.CharField(max_length=100)
-    detail: models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
+    detail = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
