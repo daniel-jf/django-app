@@ -57,7 +57,8 @@ def homies_update(request, homie_id):
     return render(request, 'homies/homie_form.html', { 'form': form })
 
 def homies_delete(request, homie_id):
-    pass
+    Homie.objects.get(id=homie_id).delete()
+    return redirect('index')
 
 #FOR LOCATOIN 
 # To view all locations made

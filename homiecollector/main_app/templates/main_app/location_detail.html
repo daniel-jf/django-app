@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <h1>Location Details</h1>
@@ -10,8 +11,8 @@
         <span>{{ location.detail }}</span>
       </div>
       <div class="card-action">
-        <a href="/locations/<int:pk>/update">Edit</a>
-        <a href="/locations/<int:pk>/delete">Delete</a>
+        <a href="{% url 'locations_update' location.id %}">Edit</a>
+        <a href="{% url 'locations_delete' location.id %}">Delete</a>
       </div>
     </div>
   </div>

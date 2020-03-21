@@ -13,6 +13,7 @@
       <div class="card-action">
         <a href="{% url 'homies_update' homie.id %}">Edit</a>
         <a href="{% url 'homies_delete' homie.id %}">Delete</a>
+        <a id="found" href="{% url 'homies_delete' homie.id %}">Found!</a>
       </div>
     </div>
   </div>
@@ -38,7 +39,8 @@
       </div>
     </div>
 </div>
-  <hr>
+
+<hr>
   <h3> Is {{ homie.name }} still there?</h3>
   <div class="row">
     <div class="col s6">
@@ -72,6 +74,10 @@
   </div>
 </div>
 <script>
+
+  // let foundEl = document.getElementById('found');
+  // alert("I'm glad you found your homie!");
+
   // Initializes a new datepicker from materialize
   let dateEl = document.getElementById('id_date');
   M.Datepicker.init(dateEl, {

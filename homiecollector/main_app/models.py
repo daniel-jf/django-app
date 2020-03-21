@@ -32,7 +32,7 @@ class Homie(models.Model):
 
 class Saw(models.Model):
     date = models.DateField('Date Seen')
-    where = models.CharField(
+    where = models.CharField('Still there?',
         max_length=2,
         choices=WHERES,
         default=WHERES[0][0]

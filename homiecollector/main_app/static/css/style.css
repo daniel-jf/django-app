@@ -1,5 +1,8 @@
+nav{
+    text-decoration: olive;
+}
+
 body {
-    background-color: olive;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -10,6 +13,7 @@ main{
 }
 
 footer{
+
     padding-top: 0;
     text-align: right;
 }
