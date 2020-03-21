@@ -16,16 +16,15 @@ def homies_index(request):
 
 def homies_detail(request, homie_id):
     homie_data = Homie.objects.get(id=homie_id)
-    saw_homie_not = Saw.objects.exclude(id__in = homie_data.saw.all().values_list('id'))
+    #saw_homie_not = Saw.objects.exclude(id__in = homie_data.saw.all().values_list('id'))
     saw_form = SawForm()
     return render(request, 'homies/detail.html', { 
         'homie': homie_data,
-        'location_form': location_form,
-        'saw': saw_homie_not
+        #'location_form': location_form,
+        #'saw': saw_homie_not
     })
 
 def assoc_location(request, homie_id, location_id):
-    # The add method accepts both the whole model object or its ID for associations
     Homie.objects.get(id=homie_id).locations.add(location_id)
     return redirect('detail', homie_id=homie_id)
 
